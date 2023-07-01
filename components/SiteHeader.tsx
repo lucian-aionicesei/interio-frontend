@@ -51,7 +51,7 @@ const SiteHeader = () => {
         </nav>
         <div className=" w-full hidden xl:flex justify-end">
           <div className="bg-project-light-yellow h-full flex items-center px-28">
-            <ul className="flex flex-col font-medium">
+            <ul className="flex flex-col gap-y-3 font-medium">
               <li className="flex gap-x-3 items-center">
                 <svg
                   width="20"
@@ -139,7 +139,7 @@ const SiteHeader = () => {
         </ul>
         <div className=" w-full flex justify-end">
           <div className="bg-project-light-yellow h-28 flex items-center w-full sm:w-auto px-10 sm:px-28">
-            <ul className="flex flex-col font-medium">
+            <ul className="flex flex-col gap-y-3 font-medium">
               <li className="flex gap-x-3 items-center">
                 <svg
                   width="20"

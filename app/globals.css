@@ -6,7 +6,33 @@
 
 body {
   font-family: "Inter", sans-serif;
-  @apply bg-project-white scroll-smooth leading-loose;
+  @apply bg-project-white scroll-smooth tracking-wide;
+}
+
+.swiper-horizontal {
+  @apply pb-10;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-horizontal,
+.swiper-pagination-custom {
+  @apply bottom-28;
+}
+
+.swiper-horizontal
+  > .swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  @apply mx-2 lg:mx-3;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  @apply w-[10px] h-[10px] lg:w-3 lg:h-3 bg-black opacity-50;
+}
+
+.swiper-horizontal
+  > .swiper-pagination-bullets
+  .swiper-pagination-bullet-active {
+  @apply bg-project-yellow opacity-100;
 }
 
 /* :root {
