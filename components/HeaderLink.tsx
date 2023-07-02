@@ -16,8 +16,8 @@ const HeaderLink = ({ path, name, burgerMenu = false }: HeaderLinkProps) => {
         <li
           className={`${
             pathname.endsWith(path)
-              ? "bg-project-light-yellow text-black font-bold"
-              : "hover:bg-project-light-yellow hover:text-black hover:font-bold"
+              ? "bg-project-yellow text-black font-bold"
+              : "hover:bg-black hover:text-project-white"
           } pointer-events-none h-full flex items-center justify-center w-24`}
         >
           <Link className=" pointer-events-auto" href={path}>

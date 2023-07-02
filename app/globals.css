@@ -9,6 +9,10 @@ body {
   @apply bg-project-white scroll-smooth tracking-wide;
 }
 
+p {
+  @apply leading-loose font-light;
+}
+
 .swiper-horizontal {
   @apply pb-10;
 }

@@ -44,7 +44,7 @@ const HeroSlider: React.FC<SliderProps> = ({ images }) => {
         ))}
         {/* <SwiperNavButtons /> */}
       </Swiper>
-      <div className="absolute top-1/4 lg:left-20 md:bg-black/70 z-40 max-w-2xl py-20 px-12 pointer-events-none">
+      <div className="absolute top-1/4 lg:left-20 md:bg-black/70 z-40 max-w-2xl py-20 px-8 sm:px-12 pointer-events-none">
         <h1 className=" text-project-yellow text-5xl font-semibold pb-3">
           Interior Renovations for Every Style and Budget
         </h1>
