@@ -1,6 +1,7 @@
 import SiteHeader from "@/components/SiteHeader";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import SiteFooter from "@/components/SiteFooter";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <SiteHeader />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );

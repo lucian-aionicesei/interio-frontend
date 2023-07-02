@@ -2,11 +2,11 @@ import Image from "next/image";
 
 const ProjectCard = ({
   title,
-  text,
+  location,
   imgUrl,
 }: {
   title: string;
-  text: string;
+  location: string;
   imgUrl: string;
 }) => {
   return (
@@ -21,9 +21,9 @@ const ProjectCard = ({
           alt="our team"
         ></Image>
       </div>
-      <div className="flex items-end justify-between p-7">
+      <div className="flex items-end justify-between py-7 px-3 sm:p-7">
         <div className="flex flex-col gap-y-4">
-          <h4 className=" text-xl font-semibold">Summer house</h4>
+          <h4 className=" text-xl font-semibold">{title}</h4>
           <span className="flex items-center gap-x-2 text-sm font-light">
             <svg
               width="13"
@@ -37,7 +37,7 @@ const ProjectCard = ({
                 fill="black"
               />
             </svg>
-            2300 København
+            {location}
           </span>
         </div>
         <button className=" hover:bg-black hover:text-project-white bg-project-light-yellow px-5 py-3 text-sm font-semibold">

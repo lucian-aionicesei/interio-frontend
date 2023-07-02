@@ -1,4 +1,5 @@
 import CategoriesGrid from "@/components/CategoriesGrid";
+import ContactForm from "@/components/ContactForm";
 import HeroSlider from "@/components/HeroSlider";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import TextComponent from "@/components/TextComponent";
@@ -20,6 +21,7 @@ export default function Home() {
       ></TextComponent>
       <CategoriesGrid></CategoriesGrid>
       <ProjectsGrid></ProjectsGrid>
+      <ContactForm></ContactForm>
     </main>
   );
 }
