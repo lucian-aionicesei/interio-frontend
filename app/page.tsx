@@ -3,9 +3,24 @@ import ContactForm from "@/components/ContactForm";
 import HeroSlider from "@/components/HeroSlider";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import TextComponent from "@/components/TextComponent";
+import { getAllPosts } from "../lib/posts";
 import Image from "next/image";
 
-export default function Home() {
+// async function getData() {
+//   const allPosts = await getAllPosts();
+
+//   return {
+//     props: {
+//       allPosts: allPosts,
+//     },
+//   };
+// }
+
+export default async function Home() {
+  const data = await getAllPosts();
+
+  console.log(data);
+
   const sliderImages = [
     "/wood-floor.png",
     "/wood-floor.png",
