@@ -1,21 +1,38 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 const ProjectCard = ({
   title,
   location,
   imgUrl,
+  images,
 }: {
   title: string;
   location: string;
   imgUrl: string;
+  images: object;
 }) => {
+  const [open, setOpen] = useState(false);
+  const imagesArray = Object.values(images);
+  // console.log(imagesArray);
+  const galleryArray = imagesArray
+    .filter((obj) => obj !== null)
+    .map((obj) => ({ src: obj.sourceUrl }));
+
   return (
     <article className="w-full max-w-sm xl:max-w-lg relative bg-project-white">
-      <div className="relative w-full aspect-square">
+      <div
+        onClick={() => setOpen(true)}
+        className="relative w-full aspect-square cursor-pointer"
+      >
         <Image
           className="object-cover"
           priority={true}
-          src={imgUrl}
+          src={imagesArray[0]?.sourceUrl}
           fill={true}
           sizes="(min-width: 1023px) 50vw, 100vw"
           alt="our team"
@@ -40,9 +57,18 @@ const ProjectCard = ({
             {location}
           </span>
         </div>
-        <button className=" hover:bg-black hover:text-project-white bg-project-light-yellow px-5 py-3 text-sm font-semibold">
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className=" hover:bg-black hover:text-project-white bg-project-light-yellow px-5 py-3 text-sm font-semibold"
+        >
           View pictures
         </button>
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          slides={galleryArray}
+        />
       </div>
     </article>
   );

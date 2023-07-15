@@ -6,60 +6,97 @@ import TextComponent from "@/components/TextComponent";
 import { getData } from "../lib/getData";
 
 export default async function Home() {
-  const query = {
-    query: `query getAllProjects {
-      projects {
-        nodes {
-          images {
-            images {
-              image {
-                sourceUrl
-              }
-              imageCopy {
-                sourceUrl
-              }
-              imageCopy2 {
-                sourceUrl
-              }
-            }
-          }
-          location {
-            location
-          }
-          title
-        }
-      }
-    }`,
-  };
-  const data = await getData(query);
+  const sliderData = await getData(sliderQuery);
+  const selectedProjects = await getData(selectedProjectsQuery);
+  const textBlock = await getData(textBlockQuery);
 
-  console.log(data.data.projects.nodes[0].images);
-
-  const sliderImages = [
-    "/wood-floor.png",
-    "/wood-floor.png",
-    "/wood-floor.png",
-  ];
+  // console.log(textBlock.data.page.textBlock.textBlock);
 
   return (
     <main className="flex flex-col gap-y-16">
-      <HeroSlider images={sliderImages}></HeroSlider>
-      {/* {data.data.posts.edges.map((post: any, index: number) => (
-        <p key={index}>{post.node.title}</p>
-      ))} */}
-      {data.data.projects.nodes.map((project: any, index: number) => (
-        <div key={index}>
-          <h4>{project.title}</h4>
-          <p>{project.location.location}</p>
-        </div>
-      ))}
+      <HeroSlider
+        heroText={sliderData.data.page.homeSlider.homeSlider.heroText}
+        title={sliderData.data.page.homeSlider.homeSlider.title}
+        sliderImages={sliderData.data.page.homeSlider.homeSlider.sliderImages}
+      ></HeroSlider>
       <TextComponent
-        title="Elevate Your Living Space: Interior Renovations for Every Style and Budget"
-        text="Lorem ipsum dolor sit amet mi bibendum rhoncus netus mollis. Aliquet hendrerit phasellus massa velit suspendisse proin mollis in pellentesque."
+        title={textBlock.data.page.textBlock.textBlock.title}
+        text={textBlock.data.page.textBlock.textBlock.text}
       ></TextComponent>
       <CategoriesGrid></CategoriesGrid>
-      <ProjectsGrid></ProjectsGrid>
+      <ProjectsGrid
+        projects={selectedProjects.data.page.selectedProjects.projects}
+        homePage={true}
+      ></ProjectsGrid>
       <ContactForm></ContactForm>
     </main>
   );
 }
+
+const sliderQuery = {
+  query: `query getHeroSlider {
+    page(id: "/home/", idType: URI) {
+      homeSlider {
+        homeSlider {
+          heroText
+          sliderImages {
+            image {
+              sourceUrl
+            }
+            imageCopy {
+              sourceUrl
+            }
+            imageCopy2 {
+              sourceUrl
+            }
+          }
+          title
+        }
+      }
+    }
+  }`,
+};
+
+const selectedProjectsQuery = {
+  query: `query getHomeProjects {
+    page(id: "/home/", idType: URI) {
+      selectedProjects {
+        projects {
+          ... on Project {
+            id
+            title
+            location {
+              location
+            }
+            images {
+              images {
+                image {
+                  sourceUrl
+                }
+                imageCopy {
+                  sourceUrl
+                }
+                imageCopy2 {
+                  sourceUrl
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }`,
+};
+
+const textBlockQuery = {
+  query: `query getHomeTextBlock {
+    page(id: "/home/", idType: URI) {
+      textBlock {
+        textBlock {
+          title
+          text
+        }
+      }
+    }
+  }`,
+};
