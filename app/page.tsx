@@ -9,6 +9,7 @@ export default async function Home() {
   const sliderData = await getData(sliderQuery);
   const selectedProjects = await getData(selectedProjectsQuery);
   const textBlock = await getData(textBlockQuery);
+  const categories = await getData(categoriesQuery);
 
   // console.log(textBlock.data.page.textBlock.textBlock);
 
@@ -23,7 +24,7 @@ export default async function Home() {
         title={textBlock.data.page.textBlock.textBlock.title}
         text={textBlock.data.page.textBlock.textBlock.text}
       ></TextComponent>
-      <CategoriesGrid></CategoriesGrid>
+      <CategoriesGrid categories={categories}></CategoriesGrid>
       <ProjectsGrid
         projects={selectedProjects.data.page.selectedProjects.projects}
         homePage={true}
@@ -57,6 +58,60 @@ const sliderQuery = {
   }`,
 };
 
+const textBlockQuery = {
+  query: `query getHomeTextBlock {
+    page(id: "/home/", idType: URI) {
+      textBlock {
+        textBlock {
+          title
+          text
+        }
+      }
+    }
+  }`,
+};
+
+const categoriesQuery = {
+  query: `query getExpertiseAreas {
+    post(id: "/our-expertise/", idType: URI) {
+      ourExpertise {
+        ourExpertise {
+          area1 {
+            imageAfter {
+              sourceUrl
+            }
+            imageBefore {
+              sourceUrl
+            }
+            title
+            text
+          }
+          area2 {
+            imageAfter {
+              sourceUrl
+            }
+            imageBefore {
+              sourceUrl
+            }
+            text
+            title
+          }
+          area3 {
+            imageAfter {
+              sourceUrl
+            }
+            imageBefore {
+              sourceUrl
+            }
+            text
+            title
+          }
+        }
+      }
+    }
+  }`,
+};
+
 const selectedProjectsQuery = {
   query: `query getHomeProjects {
     page(id: "/home/", idType: URI) {
@@ -82,19 +137,6 @@ const selectedProjectsQuery = {
               }
             }
           }
-        }
-      }
-    }
-  }`,
-};
-
-const textBlockQuery = {
-  query: `query getHomeTextBlock {
-    page(id: "/home/", idType: URI) {
-      textBlock {
-        textBlock {
-          title
-          text
         }
       }
     }

@@ -5,6 +5,7 @@ import { getData } from "../../lib/getData";
 
 export default async function About() {
   const data = await getData(aboutPageQuery);
+  const categories = await getData(categoriesQuery);
 
   // console.log(data.data.page.aboutUs.aboutUs.image.sourceUrl);
 
@@ -14,7 +15,7 @@ export default async function About() {
         title={data.data.page.textBlock.textBlock.title}
         text={data.data.page.textBlock.textBlock.text}
       ></TextComponent>
-      <CategoriesGrid></CategoriesGrid>
+      <CategoriesGrid categories={categories}></CategoriesGrid>
       <AboutComponent
         title={data.data.page.aboutUs.aboutUs.title}
         text={data.data.page.aboutUs.aboutUs.text}
@@ -44,6 +45,47 @@ const aboutPageQuery = {
           personName
           image {
             sourceUrl
+          }
+        }
+      }
+    }
+  }`,
+};
+
+const categoriesQuery = {
+  query: `query getExpertiseAreas {
+    post(id: "/our-expertise/", idType: URI) {
+      ourExpertise {
+        ourExpertise {
+          area1 {
+            imageAfter {
+              sourceUrl
+            }
+            imageBefore {
+              sourceUrl
+            }
+            title
+            text
+          }
+          area2 {
+            imageAfter {
+              sourceUrl
+            }
+            imageBefore {
+              sourceUrl
+            }
+            text
+            title
+          }
+          area3 {
+            imageAfter {
+              sourceUrl
+            }
+            imageBefore {
+              sourceUrl
+            }
+            text
+            title
           }
         }
       }
