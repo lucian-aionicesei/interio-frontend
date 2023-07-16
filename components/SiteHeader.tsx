@@ -6,7 +6,7 @@ import HeaderLink from "./HeaderLink";
 import useScreenWidth from "../hooks/useScreenWidth";
 import { usePathname } from "next/navigation";
 
-const SiteHeader = () => {
+const SiteHeader = ({ phone, email }: { phone: string; email: string }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const screenWidth = useScreenWidth();
   const pathname = usePathname();
@@ -69,7 +69,7 @@ const SiteHeader = () => {
                     fill="#292D32"
                   />
                 </svg>
-                +45 23 23 23 45
+                {phone}
               </li>
               <li className="flex gap-x-3 items-center">
                 <svg
@@ -84,7 +84,7 @@ const SiteHeader = () => {
                     fill="#292D32"
                   />
                 </svg>
-                contact@interio.dk
+                {email}
               </li>
             </ul>
           </div>
@@ -157,7 +157,7 @@ const SiteHeader = () => {
                     fill="#292D32"
                   />
                 </svg>
-                +45 23 23 23 45
+                {phone}
               </li>
               <li className="flex gap-x-3 items-center">
                 <svg
@@ -172,7 +172,7 @@ const SiteHeader = () => {
                     fill="#292D32"
                   />
                 </svg>
-                contact@interio.dk
+                {email}
               </li>
             </ul>
           </div>

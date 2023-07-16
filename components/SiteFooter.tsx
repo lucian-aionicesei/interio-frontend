@@ -3,27 +3,48 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const SiteFooter = () => {
+interface SiteFooterProps {
+  companyTitle: string;
+  phone: string;
+  email: string;
+  cvr?: string;
+  location?: string;
+}
+
+const SiteFooter = ({
+  companyTitle,
+  phone,
+  email,
+  cvr,
+  location,
+}: SiteFooterProps) => {
   const pathname = usePathname();
 
   return (
     <footer className="w-full font-light text-sm px-5 md:px-20 py-20 bg-darker-gray text-project-white">
       <div className="mx-auto w-full container flex flex-col md:flex-row justify-start md:justify-between md:items-end pt-14 gap-y-14">
         <div className="flex flex-col gap-y-3 md:min-w-[22rem]">
-          <span className="font-semibold">Interio ApS</span>
+          <span className="font-semibold">{companyTitle}</span>
           <ul className="flex flex-col gap-y-3">
+            {cvr !== null && (
+              <li className=" flex">
+                <div className="font-semibold w-20">CVR</div>
+                {cvr}
+              </li>
+            )}
+            {location !== null && (
+              <li className=" flex">
+                <div className="font-semibold w-20">location</div>
+                {location}
+              </li>
+            )}
             <li className=" flex">
-              <div className="font-semibold w-20">CVR</div>1923041740
+              <div className="font-semibold w-20">phone</div>
+              {phone}
             </li>
             <li className=" flex">
-              <div className="font-semibold w-20">location</div>C.F. Møllers
-              Alle 38, 2300 København S
-            </li>
-            <li className=" flex">
-              <div className="font-semibold w-20">phone</div>+45 22 44 33 55
-            </li>
-            <li className=" flex">
-              <div className="font-semibold w-20">email</div>contact@interio.dk
+              <div className="font-semibold w-20">email</div>
+              {email}
             </li>
           </ul>
         </div>
