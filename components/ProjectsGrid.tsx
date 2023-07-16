@@ -16,7 +16,6 @@ const ProjectsGrid = ({
             key={`project${index}`}
             title={project.title}
             location={project.location.location}
-            imgUrl="/wood-floor.png"
             images={project.images.images}
           ></ProjectCard>
         ))}

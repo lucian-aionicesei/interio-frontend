@@ -3,17 +3,17 @@
 import Image from "next/image";
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 const ProjectCard = ({
   title,
   location,
-  imgUrl,
   images,
 }: {
   title: string;
   location: string;
-  imgUrl: string;
   images: object;
 }) => {
   const [open, setOpen] = useState(false);
@@ -40,7 +40,7 @@ const ProjectCard = ({
       </div>
       <div className="flex items-end justify-between py-7 px-3 sm:p-7">
         <div className="flex flex-col gap-y-4">
-          <h4 className=" text-xl font-semibold">{title}</h4>
+          <h4 className=" text-xl font-bold">{title}</h4>
           <span className="flex items-center gap-x-2 text-sm font-light">
             <svg
               width="13"
@@ -65,6 +65,7 @@ const ProjectCard = ({
           View pictures
         </button>
         <Lightbox
+          plugins={[Thumbnails]}
           open={open}
           close={() => setOpen(false)}
           slides={galleryArray}

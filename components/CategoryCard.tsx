@@ -39,7 +39,7 @@ const CategoryCard = ({
         ></Image>
       </div>
       <div className="text-center md:px-7">
-        <h2 className="text-xl md:text-3xl font-semibold pb-3">{title}</h2>
+        <h2 className=" text-2xl md:text-3xl font-semibold pb-3">{title}</h2>
         <p className=" text-base">{text}</p>
       </div>
     </article>
