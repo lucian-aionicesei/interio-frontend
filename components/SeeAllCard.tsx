@@ -5,7 +5,7 @@ const SeeAllCard = ({ imgUrl }: { imgUrl: string }) => {
   return (
     <article className="w-full max-w-sm xl:max-w-lg relative bg-project-yellow flex flex-col justify-between">
       <div className=" w-full aspect-square px-14 xl:px-20 flex items-end justify-center">
-        <div className="relative w-full aspect-[4/5]">
+        <Link className="relative w-full aspect-[4/5]" href="/projects">
           <Image
             className="object-cover"
             priority={true}
@@ -14,7 +14,7 @@ const SeeAllCard = ({ imgUrl }: { imgUrl: string }) => {
             sizes="(min-width: 1023px) 50vw, 100vw"
             alt="our team"
           ></Image>
-        </div>
+        </Link>
       </div>
       <div className="flex items-end justify-between py-7 px-3 sm:p-7">
         <h4 className=" text-2xl font-bold">All projects</h4>
