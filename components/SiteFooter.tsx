@@ -20,6 +20,11 @@ const SiteFooter = ({
 }: SiteFooterProps) => {
   const pathname = usePathname();
 
+  const encodedLocation = location ? encodeURIComponent(location) : "";
+  const googleMapsLink = location
+    ? `https://www.google.com/maps/search/?api=1&query=${encodedLocation}`
+    : "";
+
   return (
     <footer className="w-full font-light text-sm px-5 md:px-20 py-20 bg-darker-gray text-project-white">
       <div className="mx-auto w-full container flex flex-col md:flex-row justify-start md:justify-between md:items-end pt-14 gap-y-14">
@@ -35,7 +40,13 @@ const SiteFooter = ({
             {location !== null && (
               <li className=" flex">
                 <div className="font-semibold w-20">location</div>
-                {location}
+                <a
+                  href={googleMapsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {location}
+                </a>
               </li>
             )}
             <li className=" flex">
@@ -44,7 +55,7 @@ const SiteFooter = ({
             </li>
             <li className=" flex">
               <div className="font-semibold w-20">email</div>
-              {email}
+              <a href={`mailto: ${email}`}>{email}</a>
             </li>
           </ul>
         </div>

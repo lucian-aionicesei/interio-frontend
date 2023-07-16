@@ -84,7 +84,7 @@ const SiteHeader = ({ phone, email }: { phone: string; email: string }) => {
                     fill="#292D32"
                   />
                 </svg>
-                {email}
+                <a href={`mailto: ${email}`}>{email}</a>
               </li>
             </ul>
           </div>
@@ -172,7 +172,7 @@ const SiteHeader = ({ phone, email }: { phone: string; email: string }) => {
                     fill="#292D32"
                   />
                 </svg>
-                {email}
+                <a href={`mailto: ${email}`}>{email}</a>
               </li>
             </ul>
           </div>

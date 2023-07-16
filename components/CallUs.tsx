@@ -25,6 +25,11 @@ const CallUs: React.FC<ContactInfoProps> = ({
   title,
   image,
 }) => {
+  const encodedLocation = location ? encodeURIComponent(location) : "";
+  const googleMapsLink = location
+    ? `https://www.google.com/maps/search/?api=1&query=${encodedLocation}`
+    : "";
+
   return (
     <section className=" py-14 px-7 md:p-20 w-full bg-light-gray font-light text-base text-project-white">
       {title !== null && (
@@ -46,7 +51,7 @@ const CallUs: React.FC<ContactInfoProps> = ({
             <h4 className=" font-semibold">{contactPerson}</h4>
             <p>{personTitle}</p>
             <p>{phone}</p>
-            <p>{email}</p>
+            <a href={`mailto: ${email}`}>{email}</a>
           </div>
           <div className="flex flex-col gap-y-3 md:min-w-[22rem]">
             <span className="font-semibold">{companyTitle}</span>
@@ -59,7 +64,13 @@ const CallUs: React.FC<ContactInfoProps> = ({
               )}
               <li className=" flex">
                 <div className="font-semibold w-20">location</div>
-                {location}
+                <a
+                  href={googleMapsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {location}
+                </a>
               </li>
             </ul>
           </div>

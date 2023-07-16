@@ -5,7 +5,6 @@ import { getData } from "@/lib/getData";
 export default async function Contact() {
   const contactInfo = await getData(contactInfoQuery);
 
-  console.log(contactInfo.data.page.contactInfo.contactInfo);
   return (
     <main className=" pt-24 flex flex-col gap-y-16">
       <CallUs
