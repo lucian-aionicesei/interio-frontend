@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
@@ -17,6 +17,8 @@ const ProjectCard = ({
   location: string;
   images: object;
 }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
   const [open, setOpen] = useState(false);
   const imagesArray = Object.values(images);
   // console.log(imagesArray);
@@ -24,16 +26,47 @@ const ProjectCard = ({
     .filter((obj) => obj !== null)
     .map((obj) => ({ src: obj.sourceUrl }));
 
+  useEffect(() => {
+    let interval: NodeJS.Timeout | null = null;
+
+    if (isHovered && galleryArray.length > 0) {
+      interval = setInterval(() => {
+        setCurrentImageIndex(
+          (prevIndex) => (prevIndex + 1) % galleryArray.length
+        );
+      }, 1000);
+    }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [isHovered, galleryArray]);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setCurrentImageIndex(0);
+  };
+
+  const displayedImages = galleryArray.slice(0, 5);
+
   return (
     <article className="w-full max-w-sm xl:max-w-lg relative bg-project-white">
       <div
         onClick={() => setOpen(true)}
         className="relative w-full aspect-square cursor-pointer"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <Image
           className="object-cover"
           priority={true}
-          src={imagesArray[0]?.sourceUrl}
+          src={displayedImages[currentImageIndex].src}
           fill={true}
           sizes="(min-width: 1023px) 50vw, 100vw"
           alt="our team"

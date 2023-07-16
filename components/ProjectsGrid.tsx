@@ -4,9 +4,11 @@ import SeeAllCard from "./SeeAllCard";
 const ProjectsGrid = ({
   projects,
   homePage,
+  allProjectsImg,
 }: {
   projects: Object[];
   homePage: Boolean;
+  allProjectsImg?: string;
 }) => {
   return (
     <section className="px-7 xl:px-20 py-20 w-full bg-light-gray">
@@ -19,7 +21,11 @@ const ProjectsGrid = ({
             images={project.images.images}
           ></ProjectCard>
         ))}
-        {homePage && <SeeAllCard imgUrl="/house.png"></SeeAllCard>}
+        {homePage && (
+          <SeeAllCard
+            imgUrl={allProjectsImg ? allProjectsImg : ""}
+          ></SeeAllCard>
+        )}
       </div>
     </section>
   );

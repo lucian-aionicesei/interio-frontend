@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const SeeAllCard = ({ imgUrl }: { imgUrl: string }) => {
   return (
@@ -17,9 +18,12 @@ const SeeAllCard = ({ imgUrl }: { imgUrl: string }) => {
       </div>
       <div className="flex items-end justify-between py-7 px-3 sm:p-7">
         <h4 className=" text-2xl font-bold">All projects</h4>
-        <button className=" hover:bg-black hover:text-project-white bg-light-gray text-project-white px-5 py-3 text-sm font-semibold">
+        <Link
+          className=" hover:bg-black hover:text-project-white bg-light-gray text-project-white px-5 py-3 text-sm font-semibold"
+          href="/projects"
+        >
           See all projects
-        </button>
+        </Link>
       </div>
     </article>
   );

@@ -11,7 +11,9 @@ export default async function Home() {
   const textBlock = await getData(textBlockQuery);
   const categories = await getData(categoriesQuery);
 
-  // console.log(textBlock.data.page.textBlock.textBlock);
+  console.log(
+    selectedProjects.data.page.selectedProjects.allProjectsImage.sourceUrl
+  );
 
   return (
     <main className="flex flex-col gap-y-16">
@@ -28,6 +30,9 @@ export default async function Home() {
       <ProjectsGrid
         projects={selectedProjects.data.page.selectedProjects.projects}
         homePage={true}
+        allProjectsImg={
+          selectedProjects.data.page.selectedProjects.allProjectsImage.sourceUrl
+        }
       ></ProjectsGrid>
       <ContactForm></ContactForm>
     </main>
@@ -137,6 +142,9 @@ const selectedProjectsQuery = {
               }
             }
           }
+        }
+        allProjectsImage {
+          sourceUrl
         }
       }
     }
