@@ -1,6 +1,9 @@
+import { config } from "../config";
+
 export async function getData(query: Object) {
+  const url = config.wpApi;
   const headers = { "Content-Type": "application/json" };
-  const res = await fetch("https://interio-db.graphite.dk/graphql", {
+  const res = await fetch(url, {
     headers,
     method: "POST",
     body: JSON.stringify(query),
