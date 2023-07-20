@@ -76,6 +76,7 @@ const ContactForm = () => {
               type="tel"
               id="phone"
               name="phone"
+              pattern="[0-9]*"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             ></input>
@@ -102,7 +103,7 @@ const ContactForm = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
-          <div className="flex flex-col md:flex-row gap-y-5 md:items-center">
+          <div className="flex flex-col-reverse md:flex-row gap-y-5 md:items-center">
             <p
               className={`font-semibold text-sm h-full bg-green-700 py-2 px-5 duration-300 ease-in-out ${
                 status ? "opacity-1" : "opacity-0"
