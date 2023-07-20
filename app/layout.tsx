@@ -3,12 +3,27 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import SiteFooter from "@/components/SiteFooter";
 import { getData } from "@/lib/getData";
+import type { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Interio renovation",
+export const metadata: Metadata = {
+  title: "Interio Copenhagen - Interior Renovations",
   description: "Interior renovations company based in Copenhagen",
+  keywords: ["Interior", "Renovation", "Copenhagen", "Construction"],
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default async function RootLayout({
