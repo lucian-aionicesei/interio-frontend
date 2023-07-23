@@ -9,12 +9,13 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Interio Copenhagen - Interior Renovations",
-  description: "Interior renovations company based in Copenhagen",
+  description:
+    "Full service painting company engaged in office & home improvement. High quality painting service across the city at a reasonable price",
   keywords: ["Interior", "Renovation", "Copenhagen", "Construction"],
   robots: {
     index: true,
     follow: true,
-    nocache: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
