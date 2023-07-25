@@ -7,6 +7,7 @@ export async function getData(query: Object) {
     headers,
     method: "POST",
     body: JSON.stringify(query),
+    next: { tags: ["collection"] },
   });
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
