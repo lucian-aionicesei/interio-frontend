@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Interio DK - Painting & Renovations",
   description:
-    "Full service painting company engaged in office & home improvement. High quality painting service across the city at a reasonable price.",
+    "Full service painting company engaged in office & home improvement. High quality renovations service across the city at a reasonable price. (Copenhagen Denmark)",
   keywords: [
     "Interior",
     "Painting",
