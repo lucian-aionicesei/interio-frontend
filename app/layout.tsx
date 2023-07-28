@@ -33,29 +33,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  metadataBase: new URL("https://interio.dk"),
-  openGraph: {
-    title: "Interio DK - Painting & Renovations",
-    description:
-      "Full service painting company engaged in office & home improvement. High quality painting service across the city at a reasonable price.",
-    url: "https://nextjs.org",
-    siteName: "Interio.dk",
-    images: [
-      {
-        url: "/under-construction.png",
-        width: 800,
-        height: 600,
-      },
-      {
-        url: "/under-construction.png",
-        width: 1800,
-        height: 1600,
-        alt: "My custom alt",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
 };
 
 export default async function RootLayout({
