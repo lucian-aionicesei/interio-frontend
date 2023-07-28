@@ -11,4 +11,6 @@ const getEnvironmentVariable = (environmentVariable: string): string => {
 
 export const config = {
   wpApi: getEnvironmentVariable("WORDPRESS_API_URL"),
+  smtpUser: getEnvironmentVariable("SMTP_USER"),
+  smtpPassword: getEnvironmentVariable("SMTP_PASSWORD"),
 };

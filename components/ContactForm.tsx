@@ -1,34 +1,52 @@
 "use client";
 
 import Image from "next/image";
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [status, setStatus] = useState(false);
+  const [status, setStatus] = useState("");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log(
-      "name:",
-      name,
-      "phone:",
-      phone,
-      "email:",
-      email,
-      "message:",
-      message
-    );
 
-    setName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
-    setStatus(true);
+    try {
+      const response = await fetch("/api/hello", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, phone, email, message }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus("Message sent successfully");
+        setName("");
+        setPhone("");
+        setEmail("");
+        setMessage("");
+      } else {
+        setStatus("Failed to send email");
+      }
+    } catch (error) {
+      setStatus("Failed to send email");
+    }
   };
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (status !== "") {
+      timer = setTimeout(() => {
+        setStatus("");
+      }, 3000);
+    }
+    return () => clearTimeout(timer);
+  }, [status]);
 
   return (
     <section className="mx-auto py-16 mb-16 lg:mb-0 bg-light-gray lg:bg-transparent px-10 flex flex-col lg:grid grid-cols-12 2xl:container 2xl:mx-auto">
@@ -105,11 +123,15 @@ const ContactForm = () => {
           ></textarea>
           <div className="flex flex-col-reverse md:flex-row gap-y-5 md:items-center">
             <p
-              className={`font-semibold text-sm h-full bg-green-700 py-2 px-5 duration-300 ease-in-out ${
-                status ? "opacity-1" : "opacity-0"
+              className={`font-semibold text-sm h-full py-2 px-5 duration-300 ease-in-out ${
+                status !== "" ? "opacity-1" : "opacity-0"
+              } ${
+                status === "Message sent successfully"
+                  ? "bg-green-700"
+                  : "bg-red-600"
               }`}
             >
-              Message sent successfully &#10003;
+              {status}
             </p>
             <button
               type="submit"
