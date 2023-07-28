@@ -24,7 +24,7 @@ const CategoryCard = ({
             alt="our team"
           ></Image>
           <div className="absolute top-0 left-0 h-full w-full bg-black/10">
-            <p className="text-project-yellow font-bold text-2xl sm:text-3xl pl-5">
+            <p className="text-project-yellow font-semibold text-2xl sm:text-3xl pl-5">
               before
             </p>
           </div>
