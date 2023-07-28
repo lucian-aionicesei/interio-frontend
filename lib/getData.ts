@@ -4,6 +4,7 @@ export async function getData(query: Object) {
   const url = config.wpApi;
   const headers = { "Content-Type": "application/json" };
   const res = await fetch(url, {
+    next: { revalidate: 10 },
     headers,
     method: "POST",
     body: JSON.stringify(query),
