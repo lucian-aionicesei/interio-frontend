@@ -50,7 +50,7 @@ const CallUs: React.FC<ContactInfoProps> = ({
           <div className="flex flex-col gap-y-3">
             <h4 className=" font-semibold">{contactPerson}</h4>
             <p>{personTitle}</p>
-            <p>{phone}</p>
+            {phone && <p>{phone}</p>}
             <a href={`mailto: ${email}`}>{email}</a>
           </div>
           <div className="flex flex-col gap-y-3 md:min-w-[22rem]">

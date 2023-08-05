@@ -114,8 +114,9 @@ const query = {
             }
           }
         }
-        location {
+        info {
           location
+          description
         }
         title
       }

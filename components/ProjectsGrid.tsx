@@ -17,7 +17,8 @@ const ProjectsGrid = ({
           <ProjectCard
             key={`project${index}`}
             title={project.title}
-            location={project.location.location}
+            location={project.info.location}
+            description={project.info.description}
             images={project.images.images}
           ></ProjectCard>
         ))}

@@ -24,9 +24,9 @@ const CategoryCard = ({
             alt="our team"
           ></Image>
           <div className="absolute top-0 left-0 h-full w-full bg-black/10">
-            <p className="text-project-yellow font-semibold text-2xl sm:text-3xl pl-5">
+            {/* <p className="text-project-yellow font-semibold text-2xl sm:text-3xl pl-5">
               before
-            </p>
+            </p> */}
           </div>
         </div>
         <Image
@@ -37,9 +37,16 @@ const CategoryCard = ({
           sizes="(min-width: 1023px) 50vw, 100vw"
           alt="our team"
         ></Image>
+        <div className="absolute flex items-end justify-center h-full w-full pointer-events-none text-white font-bold">
+          <div className="flex items-center justify-center w-full py-7 bg-black/50">
+            <h2 className=" text-2xl md:text-3xl font-semibold pb-3">
+              {title}
+            </h2>
+          </div>
+        </div>
       </div>
       <div className="text-center md:px-7">
-        <h2 className=" text-2xl md:text-3xl font-semibold pb-3">{title}</h2>
+        {/* <h2 className=" text-2xl md:text-3xl font-semibold pb-3">{title}</h2> */}
         <p className=" text-base">{text}</p>
       </div>
     </article>
