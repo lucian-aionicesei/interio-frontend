@@ -30,13 +30,15 @@ const ProjectCard = ({
       src: obj.sourceUrl,
     }));
 
+  const displayedImages = galleryArray.slice(0, 5);
+
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
 
-    if (isHovered && galleryArray.length > 0) {
+    if (isHovered && displayedImages.length > 0) {
       interval = setInterval(() => {
         setCurrentImageIndex(
-          (prevIndex) => (prevIndex + 1) % galleryArray.length
+          (prevIndex) => (prevIndex + 1) % displayedImages.length
         );
       }, 1600);
     }
@@ -46,7 +48,7 @@ const ProjectCard = ({
         clearInterval(interval);
       }
     };
-  }, [isHovered, galleryArray]);
+  }, [isHovered, displayedImages]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -56,8 +58,6 @@ const ProjectCard = ({
     setIsHovered(false);
     setCurrentImageIndex(0);
   };
-
-  const displayedImages = galleryArray.slice(0, 5);
 
   return (
     <article className="w-full max-w-sm xl:max-w-lg relative bg-project-white">
