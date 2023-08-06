@@ -20,6 +20,15 @@ interface SliderProps {
     imageCopy2: {
       sourceUrl: string;
     };
+    imageCopy3: {
+      sourceUrl: string;
+    };
+    imageCopy4: {
+      sourceUrl: string;
+    };
+    imageCopy5: {
+      sourceUrl: string;
+    };
   };
   title: string;
 }
@@ -46,20 +55,23 @@ const HeroSlider: React.FC<SliderProps> = ({
         // onSwiper={(swiper) => console.log(swiper)}
         // onSlideChange={() => console.log("slide change")}
       >
-        {imagesArray.map((image, index) => (
-          <SwiperSlide key={index} virtualIndex={index}>
-            <div className="w-full h-full relative">
-              <div className="absolute top-0 left-0 w-full h-full bg-black/60 md:bg-black/20 z-40 pointer-events-none"></div>
-              <Image
-                className=" object-cover"
-                priority={true}
-                src={image?.sourceUrl}
-                fill={true}
-                alt="our team"
-              ></Image>
-            </div>
-          </SwiperSlide>
-        ))}
+        {imagesArray.map(
+          (image, index) =>
+            image && (
+              <SwiperSlide key={index} virtualIndex={index}>
+                <div className="w-full h-full relative">
+                  <div className="absolute top-0 left-0 w-full h-full bg-black/50 md:bg-black/20 z-40 pointer-events-none"></div>
+                  <Image
+                    className=" object-cover"
+                    priority={true}
+                    src={image?.sourceUrl}
+                    fill={true}
+                    alt="our team"
+                  ></Image>
+                </div>
+              </SwiperSlide>
+            )
+        )}
         {/* <SwiperNavButtons /> */}
       </Swiper>
       <div className="absolute top-1/4 lg:left-20 md:bg-black/70 z-40 max-w-2xl py-20 px-8 sm:px-12 pointer-events-none">

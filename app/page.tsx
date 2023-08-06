@@ -55,6 +55,15 @@ const sliderQuery = {
             imageCopy2 {
               sourceUrl
             }
+            imageCopy3 {
+              sourceUrl
+            }
+            imageCopy4 {
+              sourceUrl
+            }
+            imageCopy5 {
+              sourceUrl
+            }
           }
           title
         }

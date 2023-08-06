@@ -9,9 +9,16 @@ const ContactForm = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    if (loading) {
+      return;
+    }
+
+    setLoading(true);
 
     try {
       const response = await fetch("/api/hello", {
@@ -35,6 +42,8 @@ const ContactForm = () => {
       }
     } catch (error) {
       setStatus("Failed to send email");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -43,7 +52,7 @@ const ContactForm = () => {
     if (status !== "") {
       timer = setTimeout(() => {
         setStatus("");
-      }, 3000);
+      }, 4000);
     }
     return () => clearTimeout(timer);
   }, [status]);
@@ -80,6 +89,7 @@ const ContactForm = () => {
               type="text"
               id="name"
               name="name"
+              disabled={loading}
               value={name}
               required
               onChange={(e) => setName(e.target.value)}
@@ -94,6 +104,7 @@ const ContactForm = () => {
               type="tel"
               id="phone"
               name="phone"
+              disabled={loading}
               pattern="[0-9]*"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -109,6 +120,7 @@ const ContactForm = () => {
               type="email"
               id="email"
               name="email"
+              disabled={loading}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             ></input>
@@ -118,12 +130,13 @@ const ContactForm = () => {
             className=" flex items-start justify-start bg-lightest-gray rounded-md h-36 p-3"
             id="fname"
             name="fname"
+            disabled={loading}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
           <div className="flex flex-col-reverse md:flex-row gap-y-5 md:items-center">
             <p
-              className={`font-semibold text-sm h-full py-2 px-5 duration-300 ease-in-out ${
+              className={`font-semibold text-sm h-full py-2 px-5 ${
                 status !== "" ? "opacity-1" : "opacity-0"
               } ${
                 status === "Message sent successfully"
@@ -134,6 +147,7 @@ const ContactForm = () => {
               {status}
             </p>
             <button
+              disabled={loading}
               type="submit"
               className=" ml-auto w-fit hover:bg-black hover:text-project-white bg-project-light-yellow text-black px-5 py-3 text-sm font-semibold"
             >
