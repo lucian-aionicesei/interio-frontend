@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import HeaderLink from "./HeaderLink";
 import useScreenWidth from "../hooks/useScreenWidth";
 import { usePathname } from "next/navigation";
+import { useInView } from "react-intersection-observer";
 
 const SiteHeader = ({ phone, email }: { phone: string; email: string }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -59,10 +60,10 @@ const SiteHeader = ({ phone, email }: { phone: string; email: string }) => {
         </span>
         <nav className=" text-project-white font-light text-base h-full w-full hidden xl:block">
           <ul className=" flex h-full">
-            <HeaderLink name="Home" path="/" />
-            <HeaderLink name="Projects" path="/projects" />
-            <HeaderLink name="About" path="/about" />
-            <HeaderLink name="Contact" path="/contact" />
+            <HeaderLink name="Hjem" path="/" />
+            <HeaderLink name="Projekter" path="/projects" />
+            <HeaderLink name="Om os" path="/about" />
+            <HeaderLink name="Kontakt" path="/contact" />
           </ul>
         </nav>
         <div className=" w-full hidden xl:flex justify-end">

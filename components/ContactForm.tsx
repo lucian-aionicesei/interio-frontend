@@ -32,16 +32,16 @@ const ContactForm = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setStatus("Message sent successfully");
+        setStatus("Beskeden blev sendt");
         setName("");
         setPhone("");
         setEmail("");
         setMessage("");
       } else {
-        setStatus("Failed to send email");
+        setStatus("Beskeden blev ikke sendt");
       }
     } catch (error) {
-      setStatus("Failed to send email");
+      setStatus("Beskeden blev ikke sendt");
     } finally {
       setLoading(false);
     }
@@ -73,16 +73,16 @@ const ContactForm = () => {
       <div className=" bg-light-gray max-w-lg text-project-white col-end-13 xl:col-end-12 col-span-6 xl:col-span-5 row-start-1 pt-10 px-0 sm:p-14 h-full flex flex-col gap-y-10 justify-center">
         <article className="w-full">
           <h2 className="text-2xl md:text-3xl font-semibold pb-3">
-            We&apos;re ready to bring your project to life
+            Vi er klar til at bringe dit projekt ud i livet
           </h2>
           <span className="lg:font-bold text-sm lg:text-base">
-            just contact us
+            contakt os for information og priser
           </span>
         </article>
         <form onSubmit={handleSubmit} className="flex flex-col gap-y-4 text-sm">
           <div className="flex items-center h-10 pl-3 rounded-md w-full bg-lightest-gray">
             <label className="font-bold w-24" htmlFor="name">
-              Name
+              Navn
             </label>
             <input
               className=" h-full w-full bg-lightest-gray"
@@ -97,7 +97,7 @@ const ContactForm = () => {
           </div>
           <div className="flex items-center h-10 pl-3 rounded-md w-full bg-lightest-gray">
             <label className="font-bold w-24" htmlFor="phone">
-              Phone
+              Tel
             </label>
             <input
               className=" h-full w-full bg-transparent"
@@ -139,9 +139,7 @@ const ContactForm = () => {
               className={`font-semibold text-sm h-full py-2 px-5 ${
                 status !== "" ? "opacity-1" : "opacity-0"
               } ${
-                status === "Message sent successfully"
-                  ? "bg-green-700"
-                  : "bg-red-600"
+                status === "Beskeden blev sendt" ? "bg-green-700" : "bg-red-600"
               }`}
             >
               {status}

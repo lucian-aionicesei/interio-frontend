@@ -17,12 +17,12 @@ const SeeAllCard = ({ imgUrl }: { imgUrl: string }) => {
         </Link>
       </div>
       <div className="flex items-end justify-between py-7 px-3 sm:p-7">
-        <h4 className=" text-2xl font-bold">All projects</h4>
+        <h4 className=" text-2xl font-bold">Alle projekter</h4>
         <Link
           className=" hover:bg-black hover:text-project-white bg-light-gray text-project-white px-5 py-3 text-sm font-semibold"
           href="/projects"
         >
-          See all projects
+          Se alle projekter
         </Link>
       </div>
     </article>

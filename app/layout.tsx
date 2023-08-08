@@ -8,10 +8,15 @@ import type { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Interio DK - Painting & Renovations",
+  title: "Interio DK - Maling og Renoveringer",
   description:
-    "Full service painting company engaged in office & home improvement. High quality renovations service across the city at a reasonable price. (Copenhagen Denmark)",
+    "Vi Tilbyder professionel håndværkerhjælp til dit næste projekt. Hos Interio Aps spænder vores opgaver bredt – og vi kan hjælpe med opgaver inden for Maler, Murer samt Nedrivning. (Copenhagen Denmark)",
   keywords: [
+    "Renoveringer",
+    "Maling",
+    "Murer",
+    "Fliselægning",
+    "København",
     "Interior",
     "Painting",
     "Renovation",

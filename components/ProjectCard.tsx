@@ -121,7 +121,7 @@ const ProjectCard = ({
           onClick={() => setOpen(true)}
           className=" whitespace-nowrap hover:bg-black hover:text-project-white text-black bg-project-light-yellow px-5 py-3 text-sm font-semibold "
         >
-          View pictures
+          Se detaljer
         </button>
       </div>
       <Lightbox
