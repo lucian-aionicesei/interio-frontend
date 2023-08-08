@@ -7,6 +7,7 @@ import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
+import { useInView } from "react-intersection-observer";
 
 const ProjectCard = ({
   title,
@@ -23,7 +24,12 @@ const ProjectCard = ({
   const [isHovered, setIsHovered] = useState(false);
   const [open, setOpen] = useState(false);
   const imagesArray = Object.values(images);
-  // console.log(imagesArray);
+  const isSmallScreen = window.innerWidth < 769;
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0.9,
+  });
+
   const galleryArray = imagesArray
     .filter((obj) => obj !== null)
     .map((obj) => ({
@@ -35,12 +41,14 @@ const ProjectCard = ({
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
 
-    if (isHovered && displayedImages.length > 0) {
+    if ((inView || isHovered) && displayedImages.length > 0) {
       interval = setInterval(() => {
         setCurrentImageIndex(
           (prevIndex) => (prevIndex + 1) % displayedImages.length
         );
       }, 1600);
+    } else {
+      setCurrentImageIndex(0);
     }
 
     return () => {
@@ -48,7 +56,7 @@ const ProjectCard = ({
         clearInterval(interval);
       }
     };
-  }, [isHovered, displayedImages]);
+  }, [inView, isHovered, displayedImages]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -60,7 +68,10 @@ const ProjectCard = ({
   };
 
   return (
-    <article className="w-full max-w-sm xl:max-w-lg relative bg-project-white">
+    <article
+      ref={isSmallScreen ? ref : null}
+      className="w-full max-w-sm xl:max-w-lg relative bg-project-white"
+    >
       <div
         onClick={() => setOpen(true)}
         className="relative w-full aspect-square cursor-pointer"
