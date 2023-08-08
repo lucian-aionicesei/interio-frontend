@@ -8,6 +8,7 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import { useInView } from "react-intersection-observer";
+import { useWindowWidth } from "@react-hook/window-size";
 
 const ProjectCard = ({
   title,
@@ -24,7 +25,7 @@ const ProjectCard = ({
   const [isHovered, setIsHovered] = useState(false);
   const [open, setOpen] = useState(false);
   const imagesArray = Object.values(images);
-  const isSmallScreen = window.innerWidth < 769;
+  const isSmallScreen = useWindowWidth() < 769;
   const { ref, inView } = useInView({
     /* Optional options */
     threshold: 0.9,
