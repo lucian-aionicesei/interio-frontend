@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 
 const CategoryCard = ({
   title,
@@ -11,8 +14,19 @@ const CategoryCard = ({
   imgAfter: string;
   imgBefore: string;
 }) => {
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0.4,
+    triggerOnce: true,
+  });
+
   return (
-    <article className="w-full max-w-sm xl:max-w-lg relative flex flex-col gap-y-5 md:gap-y-9">
+    <article
+      ref={ref}
+      className={`w-full max-w-sm xl:max-w-lg relative flex flex-col gap-y-5 md:gap-y-9 duration-700 ease-in-out ${
+        inView ? "translate-y-0 opacity-100" : "translate-y-14 opacity-0"
+      }`}
+    >
       <div className="relative w-full aspect-[4/5] group">
         <div>
           <Image

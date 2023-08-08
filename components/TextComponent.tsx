@@ -1,7 +1,21 @@
+"use client";
+
+import { useInView } from "react-intersection-observer";
+
 const TextComponent = ({ title, text }: { title: string; text: string }) => {
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0.8,
+    triggerOnce: true,
+  });
+
   return (
-    <section className="w-full">
-      <article className="m-auto text-center px-5 sm:px-0">
+    <section ref={ref} className="w-full">
+      <article
+        className={`m-auto text-center px-5 sm:px-0 duration-700 ease-in-out ${
+          inView ? "translate-y-0 opacity-100" : " translate-y-10 opacity-0"
+        }`}
+      >
         <h1 className="text-3xl md:text-5xl mx-auto max-w-4xl font-semibold pb-5">
           {title}
         </h1>

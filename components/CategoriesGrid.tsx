@@ -1,5 +1,4 @@
 import CategoryCard from "./CategoryCard";
-import { getData } from "../lib/getData";
 
 interface Area {
   title: string;
