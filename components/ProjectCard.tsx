@@ -28,7 +28,7 @@ const ProjectCard = ({
   const isSmallScreen = useWindowWidth() < 769;
   const { ref, inView } = useInView({
     /* Optional options */
-    threshold: 0.9,
+    threshold: 1,
   });
 
   const galleryArray = imagesArray
@@ -42,13 +42,13 @@ const ProjectCard = ({
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
 
-    if ((inView || isHovered) && displayedImages.length > 0) {
+    if ((inView || isHovered) && displayedImages.length > 0 && !open) {
       interval = setInterval(() => {
         setCurrentImageIndex(
           (prevIndex) => (prevIndex + 1) % displayedImages.length
         );
       }, 1600);
-    } else {
+    } else if (!open) {
       setCurrentImageIndex(0);
     }
 
@@ -57,15 +57,19 @@ const ProjectCard = ({
         clearInterval(interval);
       }
     };
-  }, [inView, isHovered, displayedImages]);
+  }, [inView, isHovered, open, displayedImages]);
 
   const handleMouseEnter = () => {
-    setIsHovered(true);
+    if (!open) {
+      setIsHovered(true);
+    }
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
-    setCurrentImageIndex(0);
+    if (!open) {
+      setIsHovered(false);
+      setCurrentImageIndex(0);
+    }
   };
 
   return (
