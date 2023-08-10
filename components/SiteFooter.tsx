@@ -119,7 +119,7 @@ const SiteFooter = ({
         <ul className="flex flex-col items-center md:items-end gap-y-3">
           <li className=" flex">
             <Link className={`${pathname === "/" && "font-bold"}`} href="/">
-              Home
+              Hjem
             </Link>
           </li>
           <li className=" flex">
@@ -127,7 +127,7 @@ const SiteFooter = ({
               className={`${pathname === "/projects" && "font-bold"}`}
               href="/projects"
             >
-              Projects
+              Projekter
             </Link>
           </li>
           <li className=" flex">
@@ -135,7 +135,7 @@ const SiteFooter = ({
               className={`${pathname === "/about" && "font-bold"}`}
               href="/about"
             >
-              About
+              Om os
             </Link>
           </li>
           <li className=" flex">
@@ -143,7 +143,7 @@ const SiteFooter = ({
               className={`${pathname === "/contact" && "font-bold"}`}
               href="/contact"
             >
-              Contact
+              Kontakt
             </Link>
           </li>
         </ul>

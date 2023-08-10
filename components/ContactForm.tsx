@@ -76,7 +76,7 @@ const ContactForm = () => {
             Vi er klar til at bringe dit projekt ud i livet
           </h2>
           <span className="lg:font-bold text-sm lg:text-base">
-            contakt os for information og priser
+            kontakt os for information og priser
           </span>
         </article>
         <form onSubmit={handleSubmit} className="flex flex-col gap-y-4 text-sm">
