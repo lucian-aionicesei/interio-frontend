@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     // Send email
     await transporter.sendMail({
       from: config.smtpUser,
-      to: "lucian.aionicesei@gmail.com",
+      to: config.smtpUser,
       subject: "New contact form submission",
       html: `<p>Name: ${name}</p><p>Phone: ${phone}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
     });
