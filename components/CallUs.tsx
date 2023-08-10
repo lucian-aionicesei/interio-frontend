@@ -48,7 +48,9 @@ const CallUs: React.FC<ContactInfoProps> = ({
       <article className=" flex flex-col gap-y-10 lg:grid grid-cols-12 2xl:container 2xl:mx-auto ">
         <div
           className={`relative max-w-md aspect-square col-span-4 xl:col-span-3 duration-700 ease-in-out ${
-            inView ? "translate-x-0 opacity-100" : " translate-y-10 opacity-0"
+            inView
+              ? "md:translate-x-0 md:opacity-100"
+              : " md:translate-y-10 md:opacity-0"
           }`}
         >
           <Image
@@ -63,7 +65,9 @@ const CallUs: React.FC<ContactInfoProps> = ({
         <div className=" col-start-5 xl:col-start-4 col-span-8 px-0 lg:px-10 h-full flex flex-wrap gap-y-10 gap-x-10 items-end justify-between">
           <div
             className={`flex flex-col gap-y-3 delay-100 duration-700 ease-in-out ${
-              inView ? "translate-x-0 opacity-100" : " translate-y-10 opacity-0"
+              inView
+                ? "md:translate-x-0 md:opacity-100"
+                : " md:translate-y-10 md:opacity-0"
             }`}
           >
             <h4 className=" font-semibold">{contactPerson}</h4>
@@ -73,7 +77,9 @@ const CallUs: React.FC<ContactInfoProps> = ({
           </div>
           <div
             className={`flex flex-col gap-y-3 md:min-w-[22rem] delay-200 duration-700 ease-in-out ${
-              inView ? "translate-x-0 opacity-100" : " translate-y-10 opacity-0"
+              inView
+                ? "md:translate-x-0 md:opacity-100"
+                : " md:translate-y-10 md:opacity-0"
             }`}
           >
             <span className="font-semibold">{companyTitle}</span>

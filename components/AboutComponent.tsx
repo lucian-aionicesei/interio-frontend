@@ -31,7 +31,9 @@ const AboutComponent = ({
       <article className=" flex flex-col gap-y-10 lg:grid grid-cols-12 2xl:container 2xl:mx-auto ">
         <div
           className={`relative max-w-md aspect-square col-span-5 xl:col-span-4 duration-700 ease-in-out ${
-            inView ? "translate-y-0 opacity-100" : " translate-y-16 opacity-0"
+            inView
+              ? "md:translate-y-0 md:opacity-100"
+              : " md:translate-y-16 md:opacity-0"
           }`}
         >
           <Image
@@ -45,7 +47,9 @@ const AboutComponent = ({
         </div>
         <div
           className={`col-start-7 xl:col-start-6 col-span-6 h-full flex flex-col gap-y-5 justify-center duration-700 ease-in-out ${
-            inView ? "translate-x-0 opacity-100" : " translate-x-24 opacity-0"
+            inView
+              ? "md:translate-x-0 md:opacity-100"
+              : " md:translate-x-24 md:opacity-0"
           }`}
         >
           <h2 className=" text-3xl font-semibold">{title}</h2>

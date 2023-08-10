@@ -66,7 +66,7 @@ const HeroSlider: React.FC<SliderProps> = ({
             image && (
               <SwiperSlide key={index} virtualIndex={index}>
                 <div className="w-full h-full relative">
-                  <div className="absolute top-0 left-0 w-full h-full bg-black/50 md:bg-black/0 z-40 pointer-events-none"></div>
+                  <div className="absolute top-0 left-0 w-full h-full bg-black/40 md:bg-black/0 z-40 pointer-events-none"></div>
                   <Image
                     className=" object-cover"
                     priority={true}
@@ -83,7 +83,9 @@ const HeroSlider: React.FC<SliderProps> = ({
       <div
         ref={ref}
         className={`absolute top-1/4 lg:left-20 md:bg-black/70 z-40 max-w-2xl py-20 px-8 sm:px-12 pointer-events-none duration-700 ease-in-out ${
-          inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          inView
+            ? "md:translate-y-0 md:opacity-100"
+            : "md:translate-y-10 md:opacity-0"
         }`}
       >
         <h1 className=" text-project-yellow text-5xl font-semibold pb-3">

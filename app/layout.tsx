@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Interio DK - Maling og Renoveringer",
   description:
-    "Vi Tilbyder professionel håndværkerhjælp til dit næste projekt. Hos Interio Aps spænder vores opgaver bredt – og vi kan hjælpe med opgaver inden for Maler, Murer samt Nedrivning. (Copenhagen Denmark)",
+    "Vi Tilbyder professionel håndværkerhjælp til dit næste projekt. Hos Interio Aps spænder vores opgaver bredt – og vi kan hjælpe med opgaver inden for Maler, Murer samt Nedrivning. (København Denmark)",
   keywords: [
     "Renoveringer",
     "Maling",

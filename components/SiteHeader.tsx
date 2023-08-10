@@ -151,10 +151,10 @@ const SiteHeader = ({ phone, email }: { phone: string; email: string }) => {
         }`}
       >
         <ul className=" text-right text-6xl h-full flex flex-col justify-center pr-10 md:pr-20">
-          <HeaderLink name="Home" path="/" burgerMenu={true} />
-          <HeaderLink name="Projects" path="/projects" burgerMenu={true} />
-          <HeaderLink name="About" path="/about" burgerMenu={true} />
-          <HeaderLink name="Contact" path="/contact" burgerMenu={true} />
+          <HeaderLink name="Hjem" path="/" burgerMenu={true} />
+          <HeaderLink name="Projekter" path="/projects" burgerMenu={true} />
+          <HeaderLink name="Om os" path="/about" burgerMenu={true} />
+          <HeaderLink name="Kontakt" path="/contact" burgerMenu={true} />
         </ul>
         <div className=" w-full flex justify-end">
           <div className="bg-project-yellow h-28 flex items-center w-full sm:w-auto px-10 sm:px-28">

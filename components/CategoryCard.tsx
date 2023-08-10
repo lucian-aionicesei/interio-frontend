@@ -24,7 +24,9 @@ const CategoryCard = ({
     <article
       ref={ref}
       className={`w-full max-w-sm xl:max-w-lg relative flex flex-col gap-y-5 md:gap-y-9 duration-700 ease-in-out ${
-        inView ? "translate-y-0 opacity-100" : "translate-y-14 opacity-0"
+        inView
+          ? "md:translate-y-0 md:opacity-100"
+          : "md:translate-y-14 md:opacity-0"
       }`}
     >
       <div className="relative w-full aspect-[4/5] group">

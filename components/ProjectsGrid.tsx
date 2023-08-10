@@ -22,7 +22,9 @@ const ProjectsGrid = ({
     <section ref={ref} className="px-7 xl:px-20 py-20 w-full bg-light-gray">
       <div
         className={`"2xl:p-20 2xl:container 2xl:mx-auto flex flex-wrap justify-center lg:grid grid-cols-3 gap-x-1 gap-y-1 duration-700 ease-in-out ${
-          inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          inView
+            ? "md:translate-y-0 md:opacity-100"
+            : "md:translate-y-10 md:opacity-0"
         }`}
       >
         {projects?.map((project: any, index: number) => (
